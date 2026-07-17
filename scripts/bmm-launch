@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Launcher for Benchmark Manager (bmm). Symlinked to ~/.local/bin/bmm.
+set -euo pipefail
+export BMM_ROOT="${BMM_ROOT:-$HOME/benchmarks}"
+PY="$BMM_ROOT/.venv-bmm/bin/python"
+if [ ! -x "$PY" ]; then
+  echo "bmm: venv missing at $PY — run $BMM_ROOT/install/install-all.sh" >&2
+  exit 1
+fi
+cd "$BMM_ROOT"
+exec "$PY" -m bmm "$@"

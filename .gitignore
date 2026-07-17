@@ -1,0 +1,29 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# --- virtualenvs ----------------------------------------------------------
+.venv-bmm/
+.venv/
+
+# --- third-party benchmark repos + their venvs ----------------------------
+# ~11GB of cloned repos and virtualenvs; all recreated by install/*.sh and
+# scripts/install-livecodebench.sh, so they don't belong in the code repo.
+harnesses/
+
+# --- local run state / outputs --------------------------------------------
+results/
+logs/
+# measured per-model tok/s + user-added aliases (both machine-specific)
+speeds.json
+models.json
+
+# --- secrets (only .env.example is tracked) -------------------------------
+.env
+.env.local
+
+# --- personal scratch -----------------------------------------------------
+todo.md
